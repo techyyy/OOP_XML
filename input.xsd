@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://nure.ua/koval/SummaryTask3/entity"
+            targetNamespace="http://nure.ua/koval/SummaryTask3/entity">
+
+    <xsd:element name="medicines">
+        <xsd:complexType>
+            <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+                <xsd:element name="medicine" type="tns:medicine-type"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="medicine-type">
+        <xsd:sequence>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="pharmacy" type="xsd:string"/>
+            <xsd:element name="group" type="tns:group-type"/>
+            <xsd:element name="analogues" type="tns:analogues-type" minOccurs="0"/>
+            <xsd:element name="versions" type="tns:versions-type"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="group-type">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Painkiller"/>
+            <xsd:enumeration value="Sleeping pills"/>
+            <xsd:enumeration value="Sedative"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="analogues-type">
+        <xsd:sequence maxOccurs="unbounded">
+            <xsd:element name="analogueName" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="versions-type">
+        <xsd:sequence maxOccurs="unbounded">
+            <xsd:element name="version" type="tns:version-type"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="version-type">
+        <xsd:sequence>
+            <xsd:element name="certificate" type="tns:certificate-type"/>
+            <xsd:element name="package" type="tns:package-type"/>
+            <xsd:element name="dosage" type="tns:dosage-type"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="certificate-type">
+        <xsd:sequence>
+            <xsd:element name="number" type="tns:certification-number-type"/>
+            <xsd:element name="startDate" type="xsd:dateTime"/>
+            <xsd:element name="expirationDate" type="xsd:dateTime"/>
+            <xsd:element name="registeredBy" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="certification-number-type">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minExclusive value="0"/>
+            <xsd:maxExclusive value="10000"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="dosage-type">
+        <xsd:sequence>
+            <xsd:element name="value" type="xsd:positiveInteger"/>
+            <xsd:element name="period" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="package-type">
+        <xsd:sequence>
+            <xsd:element name="packageType" type="xsd:string"/>
+            <xsd:element name="amount" type="xsd:positiveInteger"/>
+            <xsd:element name="price" type="tns:price-type"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="price-type">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="\d*([,.]\d{2})?"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>

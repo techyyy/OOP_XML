@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity:medicines xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:entity="http://nure.ua/koval/SummaryTask3/entity"
+                  xsi:schemaLocation="http://nure.ua/koval/SummaryTask3/entity input.xsd">
+
+    <medicine>
+        <name>Ibuprofen</name>
+        <pharmacy>Sigma-Aldrich</pharmacy>
+        <group>Painkiller</group>
+        <analogues>
+            <analogueName>Acetaminophen</analogueName>
+            <analogueName>Arnica</analogueName>
+            <analogueName>Bromelain </analogueName>
+        </analogues>
+        <versions>
+            <version>
+                <certificate>
+                    <number>3463</number>
+                    <startDate>2020-01-01T00:00:00</startDate>
+                    <expirationDate>2022-01-01T00:00:00</expirationDate>
+                    <registeredBy>Certification Ltd.</registeredBy>
+                </certificate>
+                <package>
+                    <packageType>Pills</packageType>
+                    <amount>5</amount>
+                    <price>60</price>
+                </package>
+                <dosage>
+                    <value>1</value>
+                    <period>24 hours</period>
+                </dosage>
+            </version>
+            <version>
+                <certificate>
+                    <number>4354</number>
+                    <startDate>2020-01-01T00:00:00</startDate>
+                    <expirationDate>2022-01-01T00:00:00</expirationDate>
+                    <registeredBy>Certification Ltd.</registeredBy>
+                </certificate>
+                <package>
+                    <packageType>Pills</packageType>
+                    <amount>10</amount>
+                    <price>100</price>
+                </package>
+                <dosage>
+                    <value>1</value>
+                    <period>24</period>
+                </dosage>
+            </version>
+        </versions>
+    </medicine>
+
+    <medicine>
+        <name>Fail</name>
+        <pharmacy>Fail</pharmacy>
+        <group>Fail</group>
+        <versions>
+            <version>
+                <certificate>
+                    <number>764</number>
+                    <startDate>1993-03-02T00:00:00</startDate>
+                    <expirationDate>2020-02-01T00:00:00</expirationDate>
+                    <registeredBy>Pfizer inc.</registeredBy>
+                </certificate>
+
+                <package invalid-atribute="fail">
+                    <packageType>Fail</packageType>
+                    <amount>5</amount>
+                    <price>5</price>
+                </package>
+
+                <!-- INVALID TAG -->
+                <invaid-tag/>
+
+                <dosage>
+                    <value>5</value>
+                    <period>fail</period>
+                </dosage>
+            </version>
+        </versions>
+    </medicine>
+
+</entity:medicines>
